@@ -17,7 +17,7 @@
 <style>
     main {
         min-height: 100vh;
-        width: 100 vw;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -35,17 +35,18 @@
     .logo {
         width: 370px; 
         height: auto;
-        margin-top: 100px;    
+        margin-top: -60px; 
     }
 
     .footer {
         position: absolute;
         bottom: 0;
-        width: 100%;
-        background-color: black;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.6);
         padding: 10px 0;
         color: white;
         text-align: center;
+        margin-bottom: -25px;
     }
    
 </style>
