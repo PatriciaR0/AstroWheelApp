@@ -16,20 +16,26 @@
 
 <style>
     main {
-        height: 100%;
+        min-height: 100vh;
+        width: 100 vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin: 0;
-        padding: 0;
+        padding-bottom: 0px;
         background: url("/background.png") no-repeat center center fixed;
         background-size: cover;
         font-family: Arial, sans-serif;
         color: white;
         text-align: center;
+        z-index: -1;
     }
 
     .logo {
         width: 370px; 
         height: auto;
-        margin-top: 80px;
+        margin-top: 100px;    
     }
 
     .footer {
@@ -41,4 +47,5 @@
         color: white;
         text-align: center;
     }
+   
 </style>
