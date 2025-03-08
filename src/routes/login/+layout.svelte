@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import { page } from '$app/stores';
     let logoSrc = "/logo.png"; // A static mappában van
 </script>
 
@@ -8,7 +8,10 @@
 </svelte:head>
 
 <main>
-    <img class="logo" src={logoSrc} alt="AstroWheel Logo" />
+    {#if $page.url.pathname === "/login"} <!-- Csak a bejelentkezési oldalon jelenik meg -->
+        <img class="logo" src={logoSrc} alt="AstroWheel Logo" />
+    {/if}
+
     <slot />
 </main>
 
