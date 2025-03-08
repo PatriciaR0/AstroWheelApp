@@ -7,25 +7,11 @@
         lastIsland: "Orion Island",
         points: 250,
         firstLogin: "2025-03-08 10:30:00"
+        lastLogin: "2025-03-08 10:30:00"
     };
 </script>
 
 <style>
-    /* Alapbeállítások: teljes képernyős nézet, görgetés tiltása */
-    html, body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden; /* Nincs görgetés */
-        margin: 0;
-        padding: 0;
-        background: url('/background.png') no-repeat center center fixed;
-        background-size: cover;
-        font-family: Arial, sans-serif;
-    }
-
-    
-
-
     /* Jobb oldali tartalom */
     .content {
         flex: 1;
@@ -34,7 +20,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        color: #333; /* Sötétszürke szöveg */
+        color: black; /* Sötétszürke szöveg */
         font-size: 24px;
         background: rgba(255, 255, 255, 0.85); /* Fehér, enyhén átlátszó háttér */
         padding: 20px;
@@ -54,12 +40,16 @@
         font-size: 20px;
         margin: 5px 0;
     }
+    .home-container {
+        margin-left: 300px;
+        display: flex;
+    }
     </style>
 
 <div class="home-container">
     <div class="content">
         <h1>Welcome, {userData.username}!</h1>
-        <p>Last Island: {userData.lastIsland}</p>
-        <p>Points: {userData.points}</p>
+        <p>Your last visited island: {userData.lastIsland}</p>
+        <p>Actual Points: {userData.points}</p>
     </div>
 </div>

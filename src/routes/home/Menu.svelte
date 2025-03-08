@@ -1,6 +1,6 @@
 <script>
-    import { page } from '$app/stores';
-    import { onMount } from 'svelte';
+    import { page } from "$app/stores";
+    import { onMount } from "svelte";
 
     /**
      * @type {HTMLAudioElement}
@@ -11,7 +11,7 @@
 
     let isMusicOn = true;
     onMount(() => {
-        audio = new Audio('/sounds/backgroundmusic.mp3');
+        audio = new Audio("/sounds/backgroundmusic.mp3");
         audio.loop = true;
     });
 
@@ -24,63 +24,124 @@
         isMusicOn = !isMusicOn;
     }
 
-    import { goto } from '$app/navigation';
+    import { goto } from "$app/navigation";
 
     function goToInventory() {
-        goto('/home/inventory');
+        goto("/home/inventory");
     }
 
     function goToCharacters() {
-        goto('/home/characters');
+        goto("/home/characters");
     }
 
     function goToIslands() {
-        goto('/home/islands');
+        goto("/home/islands");
     }
 
+    function goToElements() {
+        goto("/home/elements");
+    }
+
+    function goToHighscores() {
+        goto("/home/highscores");
+    }
 </script>
 
+<div class="sidebar">
+    <div>
+        <img src="/logo.png" alt="AstroWheel Logo" />
+        <h2>{userData.username}</h2>
+        <img src="{userData.userImage}" alt="User Selected Image" style="width: 200px; height: auto; margin: 10px auto;"/>
+        <p>ID: {userData.id}</p>
+        <p>Last Island: {userData.lastIsland}</p>
+        <p>Actual points: {userData.points}</p>
+        <p>First login: {userData.firstLogin}</p>
+        <p>Last login: {userData.lastLogin}</p>
+
+        <button on:click={goToInventory}>My Inventory</button>
+
+        <button on:click={goToCharacters}>Characters</button>
+
+        <button on:click={goToIslands}>Islands</button>
+
+        <button on:click={goToIslands}>Elements</button>
+
+        <button on:click={goToIslands}>Highscores</button>
+    </div>
+
+    <!-- Music ON/OFF Gomb -->
+    <button class="music-toggle" on:click={toggleMusic}>
+        {isMusicOn ? "Music ON 🎵" : "Music OFF 🔇"}
+    </button>
+    <!-- Lábléc -->
+    <div class="footer">Made by: Witches Brew Games 2025</div>
+</div>
 
 <style>
-    /* Bal oldali sáv */
-    .sidebar {
-       display: flex;
-       z-index: 10;
-       position: fixed; /* Fixált pozíció */
-       left: 0; /* Bal oldalon */
-       top: 0; /* Felső élhez igazodva */
-       width: 300px;
-       height: 100vh; /* Teljes magasság */
-       background-color: white; /* Háttérszín */
-       color: black; /* Szövegszín */
-       padding: 1px; /* Párnázás */
-       flex-direction: column; /* Oszlopokba rendezés */
-       align-items: center; /* Középre igazítás */
-       justify-content: space-between; /* Tartalom elosztása */
-       box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5); /* Árnyék */
-    }
-    .sidebar img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-    
-    .music-toggle {
+    button {
         margin-top: auto;
+        margin-bottom: 10px;
         padding: 10px;
         cursor: pointer;
-        background: darkgray;
         border-radius: 5px;
         text-align: center;
         width: 80%;
         font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        background: url("/background.png") no-repeat center center fixed;
+        color: black; /* Szövegszín */
+    }
+    Button:hover {
+        background: rgb(182, 148, 76);
+        color: white;
+    }
+
+    /* Bal oldali sáv */
+    .sidebar {
+        font-weight: bold;
+        display: flex;
+        z-index: 10;
+        position: fixed; /* Fixált pozíció */
+        left: 0; /* Bal oldalon */
+        top: 0; /* Felső élhez igazodva */
+        width: 300px;
+        height: 100vh; /* Teljes magasság */
+        background-color: rgba(255, 255, 255, 0.6); /* Háttérszín */
+        color: black; /* Szövegszín */
+        padding: 1px; /* Párnázás */
+        flex-direction: column; /* Oszlopokba rendezés */
+        align-items: center; /* Középre igazítás */
+        justify-content: space-between; /* Tartalom elosztása */
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5); /* Árnyék */
+    }
+    .sidebar img {
+        padding: 20px;
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    .music-toggle {
+        margin-top: auto;
+        padding: 10px;
+        cursor: pointer;
+        background: url("/background.png") no-repeat center center fixed;
+        color: black; /* Szövegszín */
+        border-radius: 5px;
+        text-align: center;
+        width: 80%;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20%;
     }
 
     .music-toggle:hover {
-        background: lightgray;
+        background: rgb(25, 9, 39);
+        color: white;
     }
-    
+
     .footer {
         position: absolute;
         left: 0;
@@ -91,35 +152,6 @@
         text-align: center;
         padding: 10px;
         font-size: 14px;
+        margin-bottom: 5%;
     }
-
 </style>
-
-<div class="sidebar">
-    <div>
-        <img src="/logo.png" alt="AstroWheel Logo">
-        <h2>{userData.username}</h2>
-        <p>ID: {userData.id}</p>
-        <p>Last Island: {userData.lastIsland}</p>
-        <p>Points: {userData.points}</p>
-        <p>First login: {userData.firstLogin}</p>
-
-        <button on:click={goToInventory}>Inventory</button>
-        
-        <button on:click={goToCharacters}>Characters</button>
-        
-        <button on:click={goToIslands}>Islands</button>
-
-    </div>
-
-    <!-- Music ON/OFF Gomb -->
-    <button class="music-toggle" on:click={toggleMusic}>
-        {isMusicOn ? 'Music ON 🎵' : 'Music OFF 🔇'}
-    </button>
-    <!-- Lábléc -->
-    <div class="footer">
-        Made by: Witches Brew Games 2025
-    </div>
-</div>
-
-

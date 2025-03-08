@@ -13,8 +13,8 @@
   };
 
   /**
-     * @type {boolean}
-     */
+   * @type {boolean}
+   */
   let isHomePage;
 
   onMount(() => {
@@ -25,21 +25,37 @@
   let { children } = $props();
 </script>
 
-<Sidebar bind:userData />
+<main>
+  <Sidebar bind:userData />
 
-{#if isHomePage}
-  <div class="home-container">
-    <div class="content">
-      <h1>Welcome, {userData.username}!</h1>
-      <p>Your last visited island: {userData.lastIsland}</p>
-      <p>Points: {userData.points}</p>
+  {#if isHomePage}
+    <div class="home-container">
+      <div class="content">
+        <h1>Welcome, {userData.username}!</h1>
+        <p>Your last visited island: {userData.lastIsland}</p>
+        <p>Points: {userData.points}</p>
+      </div>
     </div>
-  </div>
-{:else}
-  {@render children()}
-{/if}
+  {:else}
+    {@render children()}
+  {/if}
+</main>
 
 <style>
+  main {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+    background: url("/background.png") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    z-index: -1;
+  }
   .home-container {
     margin-left: 300px;
     display: flex;
