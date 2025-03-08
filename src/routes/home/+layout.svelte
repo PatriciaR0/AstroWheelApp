@@ -33,7 +33,7 @@
       <div class="content">
         <h1>Welcome, {userData.username}!</h1>
         <p>Your last visited island: {userData.lastIsland}</p>
-        <p>Points: {userData.points}</p>
+        <p>Actual Points: {userData.points}</p>
       </div>
     </div>
   {:else}

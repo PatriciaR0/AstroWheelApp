@@ -56,7 +56,6 @@
         <p>Last Island: {userData.lastIsland}</p>
         <p>Actual points: {userData.points}</p>
         <p>First login: {userData.firstLogin}</p>
-        <p>Last login: {userData.lastLogin}</p>
 
         <button on:click={goToInventory}>My Inventory</button>
 
@@ -64,9 +63,9 @@
 
         <button on:click={goToIslands}>Islands</button>
 
-        <button on:click={goToIslands}>Elements</button>
+        <button on:click={goToElements}>Elements</button>
 
-        <button on:click={goToIslands}>Highscores</button>
+        <button on:click={goToHighscores}>Highscores</button>
     </div>
 
     <!-- Music ON/OFF Gomb -->

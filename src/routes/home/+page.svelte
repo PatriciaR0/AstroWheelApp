@@ -7,7 +7,6 @@
         lastIsland: "Orion Island",
         points: 250,
         firstLogin: "2025-03-08 10:30:00"
-        lastLogin: "2025-03-08 10:30:00"
     };
 </script>
 

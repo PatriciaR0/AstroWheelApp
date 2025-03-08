@@ -1,29 +1,27 @@
-
+<div class="home-container">
+    <div class="content">
+        <h1>MY INVENTORY</h1>
+    </div>
+</div>
 
 <style>
     .home-container {
         margin-left: 300px;
         display: flex;
-        background-color: blue;
     }
 
     .content {
-        flex: 4;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.8);
-        display: flex;
+        flex: 1;
+        padding: 4px;
+        background: url("/background2.jpg") no-repeat center center fixed;
         justify-content: right;
+        text-shadow:
+            -1.5px 0 black,
+            0 1.5px black,
+            1.5px 0 black,
+            0 -1.5px black;
+        color: white;
         align-items: right;
         font-size: 24px;
     }
 </style>
-
-<div class="home-container">
-    <div class="content">
-        <h1>Welcome, !</h1>
-    </div>
-</div>
-
-
-<h1>Inventory</h1>
-<p>Here you will see your collected items.</p>
