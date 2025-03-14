@@ -1,4 +1,6 @@
 <script>
+    import Card from "../Card.svelte";
+
     let message = "";
     let character_info = {};
 
@@ -45,7 +47,7 @@
 <!-- Felső sor -->
 <div class="grid grid-cols-6 gap-4 mb-4">
     {#each images.slice(0, 6) as image}
-        <img src={image.src} alt={image.alt} class="npc_pic" />
+    <Card bind:image />
     {/each}
 </div>
 
@@ -77,15 +79,4 @@
         align-items: right;
         font-size: 24px;
     }
-
-    .npc_pic {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    padding: 5px;
-    padding-top: 50px;
-    padding-bottom:  50px;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
 </style>
