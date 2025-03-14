@@ -1,6 +1,4 @@
 <script>
-    import Menu from './Menu.svelte';
-
     let userData = {
         id: "123456",
         username: "PlayerOne",
@@ -19,9 +17,9 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        color: black; /* Sötétszürke szöveg */
+        color: black; 
         font-size: 24px;
-        background: rgba(255, 255, 255, 0.85); /* Fehér, enyhén átlátszó háttér */
+        background: rgba(255, 255, 255, 0.85); 
         padding: 20px;
         box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
         border-radius: 10px;

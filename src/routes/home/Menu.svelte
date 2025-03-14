@@ -1,5 +1,4 @@
 <script>
-    import { page } from "$app/stores";
     import { onMount } from "svelte";
 
     /**
@@ -146,30 +145,30 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         background: url("/background.png") no-repeat center center fixed;
-        color: black; /* Szövegszín */
+        color: black;
     }
     button:hover {
         background: rgb(182, 148, 76);
         color: white;
     }
 
-    /* Bal oldali sáv */
+
     .sidebar {
         font-weight: bold;
         display: flex;
         z-index: 10;
-        position: fixed; /* Fixált pozíció */
-        left: 0; /* Bal oldalon */
-        top: 0; /* Felső élhez igazodva */
+        position: fixed;
+        left: 0;
+        top: 0; 
         width: 300px;
-        height: 100vh; /* Teljes magasság */
-        background-color: rgba(255, 255, 255, 0.6); /* Háttérszín */
-        color: black; /* Szövegszín */
-        padding: 1px; /* Párnázás */
-        flex-direction: column; /* Oszlopokba rendezés */
-        align-items: center; /* Középre igazítás */
-        justify-content: space-between; /* Tartalom elosztása */
-        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5); /* Árnyék */
+        height: 100vh; 
+        background-color: rgba(255, 255, 255, 0.6);
+        color: black; 
+        padding: 1px; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: space-between; 
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5); 
     }
     .sidebar img {
         padding: 20px;
@@ -180,62 +179,62 @@
     }
 
     .home-icon-button {
-        all: unset; /* minden alapértelmezett stílus eltávolítása */
-        cursor: pointer; /* mutató kurzor */
-        background: transparent; /* háttérszín átlátszóra állítása */
-        border: none; /* keret eltávolítása */
-        padding: 0; /* padding eltávolítása */
-        position: fixed; /* pozícionálás engedélyezése */
-        top: 840px; /* lejjebb mozdítás */
-        left: 30px; /* balra mozdítás */
+        all: unset; 
+        cursor: pointer; 
+        background: transparent; 
+        border: none; 
+        padding: 0; 
+        position: fixed; 
+        top: 840px; 
+        left: 30px; 
     }
 
     .home-icon-button svg {
-        display: block; /* az ikon középre igazítása */
+        display: block;
     }
 
     .home-icon-button:hover {
-        background: transparent; /* háttérszín átlátszó marad */
+        background: transparent; 
     }
 
     .home-icon-button:hover svg {
-        stroke: #b4853f; /* ikon színének megváltoztatása hover esetén */
+        stroke: #b4853f; 
     }
 
     .home-icon-button:focus {
-        outline: none; /* fókuszkeret eltávolítása */
+        outline: none; 
     }
 
     .log-out-icon-button {
-        all: unset; /* minden alapértelmezett stílus eltávolítása */
-        cursor: pointer; /* mutató kurzor */
-        background: transparent; /* háttérszín átlátszóra állítása */
-        border: none; /* keret eltávolítása */
-        padding: 0; /* padding eltávolítása */
-        position: fixed; /* pozícionálás engedélyezése */
-        top: 840px; /* lejjebb mozdítás */
-        left: 250px; /* balra mozdítás */
+        all: unset; 
+        cursor: pointer; 
+        background: transparent; 
+        border: none; 
+        padding: 0; 
+        position: fixed; 
+        top: 840px; 
+        left: 250px; 
     }
     .log-out-icon-button:hover {
-        background: transparent; /* hover esetén is átlátszó háttérszín */
+        background: transparent; 
     }
     .log-out-icon-button:hover svg {
-        stroke: #b4853f; /* ikon színének megváltoztatása hover esetén */
+        stroke: #b4853f; 
     }
 
     .log-out-icon-button:focus {
-        outline: none; /* fókuszkeret eltávolítása */
+        outline: none; 
     }
 
     .music-toggle {
         margin-top: auto;
         padding: 10px;
         cursor: pointer;
-        all: unset; /* minden alapértelmezett stílus eltávolítása */
-        cursor: pointer; /* mutató kurzor */
-        background: transparent; /* háttérszín átlátszóra állítása */
-        border: none; /* keret eltávolítása */
-        padding: 0; /* padding eltávolítása */
+        all: unset;
+        cursor: pointer;
+        background: transparent; 
+        border: none;
+        padding: 0; 
         border-radius: 5px;
         text-align: center;
         width: 80%;
@@ -246,7 +245,7 @@
 
     .music-toggle:hover {
         color: rgb(255, 255, 255);
-        background: transparent; /* hover esetén is átlátszó háttérszín */
+        background: transparent; 
         text-shadow:
             -0.75px 0 black,
             0 0.75px black,

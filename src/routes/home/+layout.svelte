@@ -42,17 +42,17 @@
 </main>
 
 <style>
-  main {
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    overflow:hidden;
+  :global(body) {
     margin: 0;
     padding: 0;
     background: url("/background.png") no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  main {
+    flex-direction: column;
+    overflow: hidden;
     text-align: center;
     z-index: -1;
   }
