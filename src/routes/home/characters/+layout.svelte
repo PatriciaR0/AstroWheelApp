@@ -1,19 +1,6 @@
 <script>
     import CardContainer from "../CardContainer.svelte";
 
-    let character_info = {};
-
-    async function add() {
-        const response = await fetch("http://localhost:3000/api/Inventory", {
-            method: "GET",
-            headers: {
-                "content-type": "application/json",
-            },
-        });
-
-        character_info = await response.json();
-    }
-
     let images = [
         {
             src: "/npc Sagittarius.png",
