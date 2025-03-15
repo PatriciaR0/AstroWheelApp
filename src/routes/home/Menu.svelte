@@ -67,9 +67,9 @@
             alt="User Selected Image"
             style="width: 200px; height: auto; margin: 10px auto;"
         />
-        <p>ID: {userData.id}</p>
+        <p>Character ID: {userData.id}</p>
         <p>Last Island: {userData.lastIsland}</p>
-        <p>Actual points: {userData.points}</p>
+        <p>Total Score: {userData.points}</p>
         <p>First login: {userData.firstLogin}</p>
 
         <button on:click={goToInventory}>My Inventory</button>
