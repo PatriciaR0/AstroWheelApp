@@ -22,7 +22,9 @@
 
 {#if scores.length}
     <script>
-        scores = scores.sort((a, b) => b.totalScore - a.totalScore).slice(0, 10);
+        scores = scores
+            .sort((a, b) => b.totalScore - a.totalScore)
+            .slice(0, 10);
     </script>
     <div style="width: 100%; display: flex; justify-content: center;">
         <table
@@ -40,21 +42,33 @@
                 <tr
                     style="background: #001F3F; color: white; font-weight: bold;"
                 >
-                    <th style="border: 1px solid black; padding: 8px; width: 66%;"
-                        >Character ID</th
+                    <th
+                        style="border: 1px solid black; padding: 8px; width: 5%;"
+                        >#</th
                     >
-                    <th style="border: 1px solid black; padding: 8px; width: 34%;"
+                    <th
+                        style="border: 1px solid black; padding: 8px; width: 66%;"
+                        >Character Name</th
+                    >
+                    <th
+                        style="border: 1px solid black; padding: 8px; width: 34%;"
                         >Total Score</th
                     >
                 </tr>
             </thead>
             <tbody>
-                {#each scores as score}
+                {#each scores as score,i}
                     <tr>
-                        <td style="border: 1px solid black; padding: 8px; width: 66%;"
-                            >{score.characterId}</td
+                        <td
+                            style="border: 1px solid black; padding: 8px; width: 5%;"
+                            >{i+1}</td
                         >
-                        <td style="border: 1px solid black; padding: 8px; width: 34%;"
+                        <td
+                            style="border: 1px solid black; padding: 8px; width: 66%;"
+                            >{score.characterName}</td
+                        >
+                        <td
+                            style="border: 1px solid black; padding: 8px; width: 34%;"
                             >{score.totalScore}</td
                         >
                     </tr>

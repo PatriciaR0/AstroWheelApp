@@ -1,14 +1,24 @@
 <script>
     import { onMount } from "svelte";
 
+    let userData = {};
+
+    onMount(async () => {
+        const response = await fetch("http://localhost:3000/api/players/me", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+            },
+        });
+        userData = await response.json();
+    });
+
     /**
      * @type {HTMLAudioElement}
      */
     let audio;
 
-    export let userData;
-
-    let isMusicOn = true;
+    let isMusicOn = false;
     onMount(() => {
         audio = new Audio("/sounds/backgroundmusic.mp3");
         audio.loop = true;
@@ -60,25 +70,24 @@
 
 <div class="sidebar">
     <div>
-        <img src="/logo.png" alt="AstroWheel Logo" />
-        <h2>{userData.username}</h2>
         <img
-            src={userData.userImage}
+            src={"/npc " + userData.characterName + ".png"}
             alt="User Selected Image"
-            style="width: 200px; height: auto; margin: 10px auto;"
+            style="width: 170px; height: auto; margin: auto;"
         />
-        <p>Character ID: {userData.id}</p>
-        <p>Last Island: {userData.lastIsland}</p>
-        <p>Total Score: {userData.points}</p>
-        <p>First login: {userData.firstLogin}</p>
+        <h2>WELCOME BACK!</h2>
+        <h2>{userData.playerName}</h2>
+
+        <p>Character ID: {userData.characterId}</p>
+        <p>Last Island: {userData.islandName}</p>
+        <p>Total Score: {userData.totalScore}</p>
+        <p>Last login: {userData.lastLogin}</p>
 
         <button on:click={goToInventory}>My Inventory</button>
 
         <button on:click={goToCharacters}>Characters</button>
 
         <button on:click={goToIslands}>Islands</button>
-
-        <button on:click={goToElements}>Elements</button>
 
         <button on:click={goToHighscores}>Highscores</button>
 
@@ -122,6 +131,11 @@
                 <line x1="21" y1="12" x2="9" y2="12"></line>
             </svg>
         </button>
+        <img
+            src="/logo.png"
+            alt="AstroWheel Logo"
+            style="width: 120px; height: auto; margin: auto;"
+        />
     </div>
 
     <!-- Music ON/OFF Gomb -->
@@ -151,24 +165,22 @@
         background: rgb(182, 148, 76);
         color: white;
     }
-
-
     .sidebar {
         font-weight: bold;
         display: flex;
         z-index: 10;
         position: fixed;
         left: 0;
-        top: 0; 
+        top: 0;
         width: 300px;
-        height: 100vh; 
+        height: 100vh;
         background-color: rgba(255, 255, 255, 0.6);
-        color: black; 
-        padding: 1px; 
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: space-between; 
-        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5); 
+        color: black;
+        padding: 1px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
     }
     .sidebar img {
         padding: 20px;
@@ -179,14 +191,14 @@
     }
 
     .home-icon-button {
-        all: unset; 
-        cursor: pointer; 
-        background: transparent; 
-        border: none; 
-        padding: 0; 
-        position: fixed; 
-        top: 840px; 
-        left: 30px; 
+        all: unset;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+        position: fixed;
+        top: 840px;
+        left: 30px;
     }
 
     .home-icon-button svg {
@@ -194,36 +206,36 @@
     }
 
     .home-icon-button:hover {
-        background: transparent; 
+        background: transparent;
     }
 
     .home-icon-button:hover svg {
-        stroke: #b4853f; 
+        stroke: #b4853f;
     }
 
     .home-icon-button:focus {
-        outline: none; 
+        outline: none;
     }
 
     .log-out-icon-button {
-        all: unset; 
-        cursor: pointer; 
-        background: transparent; 
-        border: none; 
-        padding: 0; 
-        position: fixed; 
-        top: 840px; 
-        left: 250px; 
+        all: unset;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+        position: fixed;
+        top: 840px;
+        left: 250px;
     }
     .log-out-icon-button:hover {
-        background: transparent; 
+        background: transparent;
     }
     .log-out-icon-button:hover svg {
-        stroke: #b4853f; 
+        stroke: #b4853f;
     }
 
     .log-out-icon-button:focus {
-        outline: none; 
+        outline: none;
     }
 
     .music-toggle {
@@ -232,9 +244,9 @@
         cursor: pointer;
         all: unset;
         cursor: pointer;
-        background: transparent; 
+        background: transparent;
         border: none;
-        padding: 0; 
+        padding: 0;
         border-radius: 5px;
         text-align: center;
         width: 80%;
@@ -245,7 +257,7 @@
 
     .music-toggle:hover {
         color: rgb(255, 255, 255);
-        background: transparent; 
+        background: transparent;
         text-shadow:
             -0.75px 0 black,
             0 0.75px black,
@@ -263,6 +275,5 @@
         text-align: center;
         padding: 10px;
         font-size: 14px;
-        margin-bottom: 5%;
     }
 </style>

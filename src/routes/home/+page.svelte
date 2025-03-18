@@ -1,11 +1,17 @@
 <script>
-    let userData = {
-        id: "123456",
-        username: "PlayerOne",
-        lastIsland: "Orion Island",
-        points: 250,
-        firstLogin: "2025-03-08 10:30:00"
-    };
+    import { onMount } from "svelte";
+
+    let userData = {};
+
+onMount(async () => {
+    const response = await fetch("http://localhost:3000/api/players/me", {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+        },
+    });
+    userData = await response.json();
+});
 </script>
 
 <style>
@@ -45,8 +51,8 @@
 
 <div class="home-container">
     <div class="content">
-        <h1>Welcome, {userData.username}!</h1>
-        <p>Your last visited island: {userData.lastIsland}</p>
-        <p>Actual Points: {userData.points}</p>
+        <h1>Welcome back, {userData.playerName}!</h1>
+        <p>Your last visited island: {userData.islandName}</p>
+        <p>Actual Points: {userData.totalScore}</p>
     </div>
 </div>
