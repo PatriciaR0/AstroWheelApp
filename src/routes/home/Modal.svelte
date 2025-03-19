@@ -22,13 +22,22 @@
     if (e.target === dialog) dialog.close();
   }}
 >
+<button class="close-btn" onclick={() => dialog.close()}>✖</button>
+
+<div class="modal-content">
+  <div class="image-container">
+   {@render children?.()}
+</div>
+</div>
+
   <div>
-    {@render children?.()}
-    <button onclick={() => dialog.close()}>Close</button>
-    <button onclick={() => toggleImage()}
-      >{showFirstImage ? "Character Options" : "Character Info"}</button
-    >
-  </div>
+    
+    <div class="button-container">
+      <button class="info-btn" onclick={() => toggleImage()}
+        >{showFirstImage ? "Character Options >>" : "<< Character Info"}</button
+      >
+    </div>
+
 </dialog>
 
 <style>
@@ -37,6 +46,7 @@
     border-radius: 0.2em;
     border: none;
     padding: 0;
+    position: relative;
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);
@@ -66,7 +76,53 @@
       opacity: 1;
     }
   }
-  button {
-    display: block;
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-container {
+  display: flex;
+  justify-content: center;
+}
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #000000; 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .close-btn:hover {
+    background: #eec77f;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: -15px;
+  }
+
+  .info-btn {
+    background: none;
+    border: 2px solid #000000; 
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .info-btn:hover {
+    background: #eec77f;
+    color: white;
+    border: 2px solid #eec77f;
   }
 </style>
