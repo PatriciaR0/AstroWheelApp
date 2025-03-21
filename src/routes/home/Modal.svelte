@@ -3,6 +3,7 @@
     showModal = $bindable(),
     toggleImage = $bindable(),
     showFirstImage = $bindable(),
+    isMultiPage = $bindable(),
     children,
   } = $props();
 
@@ -22,22 +23,23 @@
     if (e.target === dialog) dialog.close();
   }}
 >
-<button class="close-btn" onclick={() => dialog.close()}>✖</button>
+  <button class="close-btn" onclick={() => dialog.close()}>✖</button>
 
-<div class="modal-content">
-  <div class="image-container">
-   {@render children?.()}
-</div>
-</div>
-
-  <div>
-    
-    <div class="button-container">
-      <button class="info-btn" onclick={() => toggleImage()}
-        >{showFirstImage ? "Character Options >>" : "<< Character Info"}</button
-      >
+  <div class="modal-content">
+    <div class="image-container">
+      {@render children?.()}
     </div>
 
+    {#if isMultiPage}
+      <div class="button-container">
+        <button class="info-btn" onclick={() => toggleImage()}
+          >{showFirstImage
+            ? "Character Options >>"
+            : "<< Character Info"}</button
+        >
+      </div>
+    {/if}
+  </div>
 </dialog>
 
 <style>
@@ -82,14 +84,14 @@
     align-items: center;
   }
   .image-container {
-  display: flex;
-  justify-content: center;
-}
+    display: flex;
+    justify-content: center;
+  }
   .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #000000; 
+    background: #000000;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -107,12 +109,12 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: -15px;
+    margin-top: 15px;
   }
 
   .info-btn {
     background: none;
-    border: 2px solid #000000; 
+    border: 2px solid #000000;
     color: #000000;
     padding: 10px 20px;
     font-size: 16px;

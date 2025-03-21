@@ -8,13 +8,14 @@
   let showFirstImage = $state(true);
   let info1 = $state("");
   let info2 = $state("");
+  let isMultiPage = $state(false);
 
   function toggleImage() {
     showFirstImage = !showFirstImage;
   }
 </script>
 
-<Modal bind:showModal bind:toggleImage bind:showFirstImage>
+<Modal bind:showModal bind:toggleImage bind:showFirstImage bind:isMultiPage>
   {#if showFirstImage}
     <img src={info1} alt={""} class="img-pop-up" />
   {:else}
@@ -24,7 +25,7 @@
 
 <div class="card-container">
   {#each images as image, i}
-    <Card bind:image={images[i]} bind:showModal bind:info1 bind:info2 />
+    <Card bind:image={images[i]} bind:showModal bind:info1 bind:info2 bind:isMultiPage/>
   {/each}
 </div>
 

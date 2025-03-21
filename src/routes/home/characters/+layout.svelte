@@ -1,6 +1,5 @@
 <script>
     import CardContainer from "../CardContainer.svelte";
-    hasMultipleImages={true}
 
     let images = [
         {

@@ -6,62 +6,62 @@
         {
             src: "/island Sagittarius.png",
             alt: "Sagittarius Island",
-            info: "/Island_sagittarius_info.jpg",
+            info1: "/Island_sagittarius_info.jpg",
         },
         {
             src: "/island Capricorn.png",
             alt: "Capricorn Island",
-            info: "/Island_capricorn_info.jpg",
+            info1: "/Island_capricorn_info.jpg",
         },
         {
             src: "/island Aquarius.png",
             alt: "Aquarius Island",
-            info: "/Island_aquarius_info.jpg",
+            info1: "/Island_aquarius_info.jpg",
         },
         {
             src: "/island Pisces.png",
             alt: "Pisces Island",
-            info: "/Island_pisces_info.jpg",
+            info1: "/Island_pisces_info.jpg",
         },
         {
             src: "/island Aries.png",
             alt: "Aries Island",
-            info: "/Island_aries_info.jpg",
+            info1: "/Island_aries_info.jpg",
         },
         {
             src: "/island Taurus.png",
             alt: "Taurus Island",
-            info: "/Island_taurus_info.jpg",
+            info1: "/Island_taurus_info.jpg",
         },
         {
             src: "/island Gemini.png",
             alt: "Gemini Island",
-            info: "/Island_gemini_info.jpg",
+            info1: "/Island_gemini_info.jpg",
         },
         {
             src: "/island Cancer.png",
             alt: "Cancer Island",
-            info: "/Island_cancer_info.jpg",
+            info1: "/Island_cancer_info.jpg",
         },
         {
             src: "/island Leo.png",
             alt: "Leo Island",
-            info: "/Island_leo_info.jpg",
+            info1: "/Island_leo_info.jpg",
         },
         {
             src: "/island Virgo.png",
             alt: "Virgo Island",
-            info: "/Island_virgo_info.jpg",
+            info1: "/Island_virgo_info.jpg",
         },
         {
             src: "/island Libra.png",
             alt: "Libra Island",
-            info: "/Island_libra_info.jpg",
+            info1: "/Island_libra_info.jpg",
         },
         {
             src: "/island Scorpio.png",
             alt: "Scorpio Island",
-            info: "/Island_scorpio_info.jpg",
+            info1: "/Island_scorpio_info.jpg",
         },
     ];
 </script>
