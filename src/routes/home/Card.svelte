@@ -4,6 +4,7 @@
     export let info1;
     export let info2;
     export let isMultiPage;
+    export let quantity;
 </script>
 
 <div
@@ -17,7 +18,7 @@
 >
     <img src={image.src} alt={image.alt} class="npc_pic" />
 
-    <div>{image.alt}</div>
+    <div>{image.alt} - {quantity} </div>
 </div>
 
 <style>

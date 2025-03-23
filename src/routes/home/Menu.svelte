@@ -70,20 +70,24 @@
 
 <div class="sidebar">
     <div>
-        <img
-            src={"/npc " + userData.characterName + ".png"}
-            alt="User Selected Image"
-            style="width: 170px; height: auto; margin: auto;"
-        />
-        <h2>WELCOME BACK!</h2>
-        <h2>{userData.playerName}</h2>
+        <div>
+            <img
+                class="profile-image"
+                src={"/npc " + userData.characterName + ".png"}
+                alt="User Selected Image"
+            />
+        </div>
+        <div class="sidebar-text">
+            <h2>WELCOME BACK!</h2>
+            <h2>{userData.playerName}</h2>
 
-        <p>Character ID: {userData.characterId}</p>
-        <p>Last Island: {userData.islandName}</p>
-        <p>Total Score: {userData.totalScore}</p>
-        <p>Last login: {userData.lastLogin}</p>
+            <p>Character ID: {userData.characterId}</p>
+            <p>Last Island: {userData.islandName}</p>
+            <p>Total Score: {userData.totalScore}</p>
+            <p>Last login: {userData.lastLogin}</p>
+        </div>
 
-        <button on:click={goToInventory}>My Inventory</button>
+        <button on:click={goToInventory}>Materials</button>
 
         <button on:click={goToCharacters}>Characters</button>
 
@@ -91,10 +95,18 @@
 
         <button on:click={goToHighscores}>Highscores</button>
 
+        <img
+            class="logo"
+            src="/logo.png"
+            alt="AstroWheel Logo"
+            style="width: 120px; height: auto; margin: auto;"
+        />
+    </div>
+    <div class="settings-button-container">
         <button
             on:click={goToHome}
             aria-label="home-icon"
-            class="home-icon-button"
+            class="settings-button"
         >
             <svg
                 width="30"
@@ -110,11 +122,13 @@
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
         </button>
-
+        <button class="music-toggle" on:click={toggleMusic}>
+            {isMusicOn ? "Music ON 🎵" : "Music OFF 🔇"}
+        </button>
         <button
             on:click={logoutAndRedirectToLogin}
             aria-label="log-out-icon"
-            class="log-out-icon-button"
+            class="settings-button"
         >
             <svg
                 width="30"
@@ -131,22 +145,27 @@
                 <line x1="21" y1="12" x2="9" y2="12"></line>
             </svg>
         </button>
-        <img
-            src="/logo.png"
-            alt="AstroWheel Logo"
-            style="width: 120px; height: auto; margin: auto;"
-        />
     </div>
-
-    <!-- Music ON/OFF Gomb -->
-    <button class="music-toggle" on:click={toggleMusic}>
-        {isMusicOn ? "Music ON 🎵" : "Music OFF 🔇"}
-    </button>
     <!-- Lábléc -->
     <div class="footer">Made by: Witches Brew Games 2025</div>
 </div>
 
 <style>
+    .profile-image {
+        padding: 20px;
+        width: 155px;
+        height: 155px;
+        border-radius: 50%;
+    }
+    .settings-button-container {
+        display: flex;
+    }
+    .sidebar-text h2 {
+        margin: 5px;
+    }
+    .sidebar-text p {
+        margin: 10px;
+    }
     button {
         margin-top: auto;
         margin-bottom: 10px;
@@ -182,59 +201,29 @@
         justify-content: space-between;
         box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
     }
-    .sidebar img {
-        padding: 20px;
-        width: 170px;
-        height: 170px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-    }
-
-    .home-icon-button {
+    .settings-button {
         all: unset;
         cursor: pointer;
         background: transparent;
         border: none;
         padding: 0;
-        position: fixed;
-        top: 840px;
-        left: 30px;
+        margin-top: auto;
+        margin-bottom: 20%;
     }
 
-    .home-icon-button svg {
+    .settings-button svg {
         display: block;
     }
 
-    .home-icon-button:hover {
+    .settings-button:hover {
         background: transparent;
     }
 
-    .home-icon-button:hover svg {
+    .settings-button:hover svg {
         stroke: #b4853f;
     }
 
-    .home-icon-button:focus {
-        outline: none;
-    }
-
-    .log-out-icon-button {
-        all: unset;
-        cursor: pointer;
-        background: transparent;
-        border: none;
-        padding: 0;
-        position: fixed;
-        top: 840px;
-        left: 250px;
-    }
-    .log-out-icon-button:hover {
-        background: transparent;
-    }
-    .log-out-icon-button:hover svg {
-        stroke: #b4853f;
-    }
-
-    .log-out-icon-button:focus {
+    .settings-button:focus {
         outline: none;
     }
 
@@ -252,6 +241,8 @@
         width: 80%;
         font-size: 16px;
         font-weight: bold;
+        margin-left: 35px;
+        margin-right: 35px;
         margin-bottom: 20%;
     }
 
@@ -275,5 +266,31 @@
         text-align: center;
         padding: 10px;
         font-size: 14px;
+    }
+    @media (max-height: 800px) {
+        .profile-image {
+            padding-top: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        button {
+            width: 40%;
+        }
+    }
+    @media (max-height: 630px) {
+        .logo {
+            display: none;
+        }
+    }
+    @media (max-height: 500px) {
+        .sidebar-text p {
+            display: none;
+        }
+    }
+    @media (min-height: 800px) {
+        .sidebar-text {
+            margin-bottom: 20px;
+        }
     }
 </style>

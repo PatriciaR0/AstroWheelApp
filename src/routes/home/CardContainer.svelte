@@ -2,7 +2,7 @@
   import Card from "./Card.svelte";
   import Modal from "./Modal.svelte";
 
-  let { images } = $props();
+  let { images, materials } = $props();
 
   let showModal = $state(false);
   let showFirstImage = $state(true);
@@ -24,8 +24,15 @@
 </Modal>
 
 <div class="card-container">
-  {#each images as image, i}
-    <Card bind:image={images[i]} bind:showModal bind:info1 bind:info2 bind:isMultiPage/>
+  {#each images as image, i} 
+    <Card
+      bind:image={images[i]}
+      bind:showModal
+      bind:info1
+      bind:info2
+      bind:isMultiPage
+      quantity = {materials.find((material) => material.materialId === image.id)?.quantity}
+    />
   {/each}
 </div>
 

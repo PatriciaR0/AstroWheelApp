@@ -2,20 +2,22 @@
     import { onMount } from "svelte";
     import CardContainer from "../CardContainer.svelte";
 
-    let items = [];
+    let materials = [];
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/api/Inventory", {
+        const response = await fetch("http://localhost:3000/api/players/me", {
             method: "GET",
             headers: {
                 "content-type": "application/json",
             },
         });
-        items = await response.json();
+        let meResponse = await response.json();
+        materials = meResponse.materials;
     });
 
     let images = [
         {
+            id: 1,
             src: "/Amethyst.png",
             alt: "Amethyst",
             info1: "/amethyst_info.jpg",
@@ -129,17 +131,7 @@
     </div>
 </div>
 
-<CardContainer bind:images />
-
-{#if items.length}
-    {#each items as item}
-        <div style="border: 1px solid black; padding: 10px; margin: 5px;">
-            Inventory ID: {item.inventoryId}, Score: {item.totalScore}
-        </div>
-    {/each}
-{:else}
-    <p>Loading inventory...</p>
-{/if}
+<CardContainer bind:images bind:materials />
 
 <style>
     .home-container {
