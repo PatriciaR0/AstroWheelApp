@@ -31,9 +31,10 @@
       bind:info1
       bind:info2
       bind:isMultiPage
-      quantity = {materials.find((material) => material.materialId === image.id)?.quantity}
+      quantity = {materials !== undefined ? materials.find((material) => material.materialId === image.id)?.quantity  : undefined }
     />
   {/each}
+
 </div>
 
 <style>
