@@ -3,76 +3,76 @@
 
     let images = [
         {
-            src: "/npc Sagittarius.png",
+            src: "/npc Sagittarius.webp",
             alt: "Sagittarius",
-            info1: "/Sagittarius_info1.jpg",
-            info2: "/Sagittarius_info2.jpg",
+            info1: "/Sagittarius_info1.webp",
+            info2: "/Sagittarius_info2.webp",
         },
         {
-            src: "/npc Capricorn.png",
+            src: "/npc Capricorn.webp",
             alt: "Capricorn",
-            info1: "/Capricorn_info1.jpg",
-            info2: "/Capricorn_info2.jpg",
+            info1: "/Capricorn_info1.webp",
+            info2: "/Capricorn_info2.webp",
         },
         {
-            src: "/npc Aquarius.png",
+            src: "/npc Aquarius.webp",
             alt: "Aquarius",
-            info1: "/Aquarius_info1.jpg",
-            info2: "/Aquarius_info2.jpg",
+            info1: "/Aquarius_info1.webp",
+            info2: "/Aquarius_info2.webp",
         },
         {
-            src: "/npc Pisces.png",
+            src: "/npc Pisces.webp",
             alt: "Pisces",
-            info1: "/Pisces_info1.jpg",
-            info2: "/Pisces_info2.jpg",
+            info1: "/Pisces_info1.webp",
+            info2: "/Pisces_info2.webp",
         },
         {
-            src: "/npc Aries.png",
+            src: "/npc Aries.webp",
             alt: "Aries",
-            info1: "/Aries_info1.jpg",
-            info2: "/Aries_info2.jpg",
+            info1: "/Aries_info1.webp",
+            info2: "/Aries_info2.webp",
         },
         {
-            src: "/npc Taurus.png",
+            src: "/npc Taurus.webp",
             alt: "Taurus",
-            info1: "/Taurus_info1.jpg",
-            info2: "/Taurus_info2.jpg",
+            info1: "/Taurus_info1.webp",
+            info2: "/Taurus_info2.webp",
         },
         {
-            src: "/npc Gemini.png",
+            src: "/npc Gemini.webp",
             alt: "Gemini",
-            info1: "/Gemini_info1.jpg",
-            info2: "/Gemini_info2.jpg",
+            info1: "/Gemini_info1.webp",
+            info2: "/Gemini_info2.webp",
         },
         {
-            src: "/npc Cancer.png",
+            src: "/npc Cancer.webp",
             alt: "Cancer",
-            info1: "/Cancer_info1.jpg",
-            info2: "/Cancer_info2.jpg",
+            info1: "/Cancer_info1.webp",
+            info2: "/Cancer_info2.webp",
         },
         {
-            src: "/npc Leo.png",
+            src: "/npc Leo.webp",
             alt: "Leo",
-            info1: "/Leo_info1.jpg",
-            info2: "/Leo_info2.jpg",
+            info1: "/Leo_info1.webp",
+            info2: "/Leo_info2.webp",
         },
         {
-            src: "/npc Virgo.png",
+            src: "/npc Virgo.webp",
             alt: "Virgo",
-            info1: "/Virgo_info1.jpg",
-            info2: "/Virgo_info2.jpg",
+            info1: "/Virgo_info1.webp",
+            info2: "/Virgo_info2.webp",
         },
         {
-            src: "/npc Libra.png",
+            src: "/npc Libra.webp",
             alt: "Libra",
-            info1: "/Libra_info1.jpg",
-            info2: "/Libra_info2.jpg",
+            info1: "/Libra_info1.webp",
+            info2: "/Libra_info2.webp",
         },
         {
-            src: "/npc Scorpio.png",
+            src: "/npc Scorpio.webp",
             alt: "Scorpio",
-            info1: "/Scorpio_info1.jpg",
-            info2: "/Scorpio_info2.jpg",
+            info1: "/Scorpio_info1.webp",
+            info2: "/Scorpio_info2.webp",
         },
     ];
 </script>
@@ -95,7 +95,7 @@
     .content {
         flex: 1;
         padding: 4px;
-        background: url("/background3.jpg") no-repeat center center fixed;
+        background: url("/background3.webp") no-repeat center center fixed;
         justify-content: right;
         text-shadow:
             -1.5px 0 black,

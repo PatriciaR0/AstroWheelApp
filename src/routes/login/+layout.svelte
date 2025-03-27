@@ -1,10 +1,10 @@
 <script>
     import { page } from '$app/stores';
-    let logoSrc = "/logo.png"; // A static mappában van
+    let logoSrc = "/logo.webp"; // A static mappában van
 </script>
 
 <svelte:head>
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
 </svelte:head>
 
 <main>
@@ -27,7 +27,7 @@
         justify-content: center;
         margin: 0;
         padding-bottom: 0px;
-        background: url("/background.png") no-repeat center center fixed;
+        background: url("/background.webp") no-repeat center center fixed;
         background-size: cover;
         font-family: Arial, sans-serif;
         color: white;
@@ -49,7 +49,6 @@
         padding: 10px 0;
         color: white;
         text-align: center;
-        margin-bottom: -25px;
     }
    
 </style>

@@ -4,64 +4,64 @@
 
     let images = [
         {
-            src: "/island Sagittarius.png",
+            src: "/island Sagittarius.webp",
             alt: "Sagittarius Island",
-            info1: "/Island_sagittarius_info.jpg",
+            info1: "/Island_sagittarius_info.webp",
         },
         {
-            src: "/island Capricorn.png",
+            src: "/island Capricorn.webp",
             alt: "Capricorn Island",
-            info1: "/Island_capricorn_info.jpg",
+            info1: "/Island_capricorn_info.webp",
         },
         {
-            src: "/island Aquarius.png",
+            src: "/island Aquarius.webp",
             alt: "Aquarius Island",
-            info1: "/Island_aquarius_info.jpg",
+            info1: "/Island_aquarius_info.webp",
         },
         {
-            src: "/island Pisces.png",
+            src: "/island Pisces.webp",
             alt: "Pisces Island",
-            info1: "/Island_pisces_info.jpg",
+            info1: "/Island_pisces_info.webp",
         },
         {
-            src: "/island Aries.png",
+            src: "/island Aries.webp",
             alt: "Aries Island",
-            info1: "/Island_aries_info.jpg",
+            info1: "/Island_aries_info.webp",
         },
         {
-            src: "/island Taurus.png",
+            src: "/island Taurus.webp",
             alt: "Taurus Island",
-            info1: "/Island_taurus_info.jpg",
+            info1: "/Island_taurus_info.webp",
         },
         {
-            src: "/island Gemini.png",
+            src: "/island Gemini.webp",
             alt: "Gemini Island",
-            info1: "/Island_gemini_info.jpg",
+            info1: "/Island_gemini_info.webp",
         },
         {
-            src: "/island Cancer.png",
+            src: "/island Cancer.webp",
             alt: "Cancer Island",
-            info1: "/Island_cancer_info.jpg",
+            info1: "/Island_cancer_info.webp",
         },
         {
-            src: "/island Leo.png",
+            src: "/island Leo.webp",
             alt: "Leo Island",
-            info1: "/Island_leo_info.jpg",
+            info1: "/Island_leo_info.webp",
         },
         {
-            src: "/island Virgo.png",
+            src: "/island Virgo.webp",
             alt: "Virgo Island",
-            info1: "/Island_virgo_info.jpg",
+            info1: "/Island_virgo_info.webp",
         },
         {
-            src: "/island Libra.png",
+            src: "/island Libra.webp",
             alt: "Libra Island",
-            info1: "/Island_libra_info.jpg",
+            info1: "/Island_libra_info.webp",
         },
         {
-            src: "/island Scorpio.png",
+            src: "/island Scorpio.webp",
             alt: "Scorpio Island",
-            info1: "/Island_scorpio_info.jpg",
+            info1: "/Island_scorpio_info.webp",
         },
     ];
 </script>
@@ -83,7 +83,7 @@
     .content {
         flex: 1;
         padding: 4px;
-        background: url("/background6.jpg") no-repeat center center fixed;
+        background: url("/background6.webp") no-repeat center center fixed;
         justify-content: right;
         text-shadow:
             -1.5px 0 black,

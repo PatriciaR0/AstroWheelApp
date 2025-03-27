@@ -73,7 +73,7 @@
         <div>
             <img
                 class="profile-image"
-                src={"/npc " + userData.characterName + ".png"}
+                src={"/npc " + userData.characterName + ".webp"}
                 alt="User Selected Image"
             />
         </div>
@@ -97,7 +97,7 @@
 
         <img
             class="logo"
-            src="/logo.png"
+            src="/logo.webp"
             alt="AstroWheel Logo"
             style="width: 120px; height: auto; margin: auto;"
         />
@@ -177,7 +177,7 @@
         font-size: 16px;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
-        background: url("/background.png") no-repeat center center fixed;
+        background: url("/background.webp") no-repeat center center fixed;
         color: black;
     }
     button:hover {

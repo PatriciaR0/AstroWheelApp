@@ -89,7 +89,7 @@
     .content {
         flex: 1;
         padding: 4px;
-        background: url("/background5.jpg") no-repeat center center fixed;
+        background: url("/background5.webp") no-repeat center center fixed;
         justify-content: right;
         text-shadow:
             -1.5px 0 black,
