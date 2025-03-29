@@ -2,12 +2,14 @@
     import { onMount } from "svelte";
 
     let userData = {};
+    import { sessionStore } from "$lib/stores/sessionStore";
 
 onMount(async () => {
     const response = await fetch("http://localhost:3000/api/players/me", {
         method: "GET",
         headers: {
             "content-type": "application/json",
+            "Authorization": `Bearer ${sessionStore.getToken()}`
         },
     });
     userData = await response.json();

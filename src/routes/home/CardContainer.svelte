@@ -15,7 +15,7 @@
   }
 </script>
 
-<Modal bind:showModal bind:toggleImage bind:showFirstImage bind:isMultiPage>
+<Modal bind:showModal toggleImage={()=>toggleImage()} bind:showFirstImage bind:isMultiPage>
   {#if showFirstImage}
     <img src={info1} alt={""} class="img-pop-up" />
   {:else}
@@ -24,23 +24,24 @@
 </Modal>
 
 <div class="card-container">
-  {#each images as image, i} 
+  {#each images as image, i}
     <Card
-      bind:image={images[i]}
+      image={images[i]}
       bind:showModal
       bind:info1
       bind:info2
       bind:isMultiPage
-      quantity = {materials !== undefined ? materials.find((material) => material.materialId === image.id)?.quantity  : undefined }
+      quantity={materials !== undefined
+        ? materials.find((material) => material.materialId === image.id)
+            ?.quantity
+        : undefined}
     />
   {/each}
-
 </div>
 
 <style>
   .img-pop-up {
-    width: 1100px;
-    height: 619px;
+    width: 75vw;
   }
   .card-container {
     padding: 25px 0;

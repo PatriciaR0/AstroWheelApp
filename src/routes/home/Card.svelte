@@ -37,5 +37,6 @@
     .npc_pic:hover {
         transform: scale(1.05);
         box-shadow: 0 0 5px 10px rgba(94, 92, 91, 0.5);
+        cursor: pointer;
     }
 </style>

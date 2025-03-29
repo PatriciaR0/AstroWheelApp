@@ -1,16 +1,31 @@
 <script>
     import { onMount } from "svelte";
+    import { sessionStore } from "$lib/stores/sessionStore";
+
 
     let userData = {};
+    let character = {};
 
     onMount(async () => {
         const response = await fetch("http://localhost:3000/api/players/me", {
             method: "GET",
             headers: {
-                "content-type": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${sessionStore.getToken()}`
             },
         });
         userData = await response.json();
+
+        const characterResponse = await fetch(`http://localhost:3000/api/characters/${userData.characterId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${sessionStore.getToken()}`
+            },
+        });
+
+        character = await characterResponse.json();
+        console.log (character)
     });
 
     /**
@@ -47,10 +62,6 @@
         goto("/home/islands");
     }
 
-    function goToElements() {
-        goto("/home/elements");
-    }
-
     function goToHighscores() {
         goto("/home/highscores");
     }
@@ -60,10 +71,7 @@
     }
 
     function logoutAndRedirectToLogin() {
-        // Kijelentkezés logika
-        localStorage.removeItem("token"); // Példa token törlésre
-
-        // Irányítás a Login oldalra
+        sessionStore.clearToken();
         goto("/login");
     }
 </script>
@@ -71,17 +79,19 @@
 <div class="sidebar">
     <div>
         <div>
-            <img
-                class="profile-image"
-                src={"/npc " + userData.characterName + ".webp"}
-                alt="User Selected Image"
-            />
+            {#if character.astroSign}
+                <img
+                    class="profile-image"
+                    src={"/" + character.astroSign.toLowerCase() +"_"+ character.gender.toLowerCase() + ".webp"}
+                    alt="User Selected Image"
+                />
+            {/if}
         </div>
         <div class="sidebar-text">
             <h2>WELCOME BACK!</h2>
             <h2>{userData.playerName}</h2>
 
-            <p>Character ID: {userData.characterId}</p>
+            <p>Character Id: {userData.characterId}</p>
             <p>Last Island: {userData.islandName}</p>
             <p>Total Score: {userData.totalScore}</p>
             <p>Last login: {userData.lastLogin}</p>

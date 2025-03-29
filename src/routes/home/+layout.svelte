@@ -2,13 +2,17 @@
   import Sidebar from "./Menu.svelte";
 
   let { children } = $props();
+  import { sessionStore } from "$lib/stores/sessionStore";
 </script>
 
-<main>
-  <Sidebar/>
-
-  {@render children()}
-</main>
+{#if sessionStore.getToken()}
+  <main>
+    <Sidebar />
+    {@render children()}
+  </main>
+{:else}
+  Unauthorised 403
+{/if}
 
 <style>
   main {
