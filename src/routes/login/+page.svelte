@@ -1,23 +1,42 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import { sessionStore } from '$lib/stores/sessionStore';
+  import { sessionStore } from "$lib/stores/sessionStore";
 
   let email = "";
   let password = "";
 
+
+  function validate() {
+    let error = false;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      error = true;
+    } else {
+      error = false;
+    }
+    return error;
+  }
+
   async function handleSignIn() {
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
+  
+  let isError = validate()
+  if (isError){
+    alert ("E-mail is not valid!")
+    return
+  }
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
     });
 
     const data = await res.json();
     if (res.ok) {
-      sessionStore.setToken(data.token)
-      goto('/home');
+      sessionStore.setToken(data.token);
+      goto("/home");
     } else {
-      alert("Unsuccessful Login: " + data.error);
+      alert("Unsuccessful Login!");
     }
   }
 </script>
@@ -60,18 +79,6 @@
     margin: 5px 0;
     border: none;
     border-radius: 8px;
-  }
-
-  .forgot-password {
-    display: block;
-    margin-top: 10px;
-    color: #bbb;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .forgot-password:hover {
-    color: white;
   }
 
   .login-btn {

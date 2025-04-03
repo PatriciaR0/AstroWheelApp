@@ -124,13 +124,13 @@
             id: 29,
             src: "/Fire agate.webp",
             alt: "Fire agate",
-            info1: "/Fire agate_info.webp",
+            info1: "/fire_agate_info.webp",
         },
         {
             id: 30,
             src: "/Heliotrop.webp",
             alt: "Heliotrop",
-            info1: "/heliotrop_info.webp",
+            info1: "/heliotrope_info.webp",
         },
         {
             id: 31,
