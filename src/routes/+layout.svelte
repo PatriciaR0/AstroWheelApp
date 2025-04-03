@@ -1,10 +1,10 @@
 <script>
-let { children } = $props();
+  let { children } = $props();
 </script>
-  <main>
-    {@render children()}
-  </main>
 
+<main>
+  {@render children()}
+</main>
 
 <style>
   :global(body) {

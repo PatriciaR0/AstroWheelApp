@@ -1,5 +1,5 @@
 <script>
-    import { page } from '$app/stores';
+    import { page } from "$app/stores";
     let logoSrc = "/logo.webp"; // A static mappában van
 </script>
 
@@ -8,7 +8,8 @@
 </svelte:head>
 
 <main>
-    {#if $page.url.pathname === "/login"} <!-- Csak a bejelentkezési oldalon jelenik meg -->
+    {#if $page.url.pathname === "/login"}
+        <!--Csak a bejelentkezési oldalon jelenik meg -->
         <img class="logo" src={logoSrc} alt="AstroWheel Logo" />
     {/if}
 
@@ -36,9 +37,9 @@
     }
 
     .logo {
-        width: 370px; 
+        width: 370px;
         height: auto;
-        margin-top: -60px; 
+        margin-top: -60px;
     }
 
     .footer {
@@ -50,5 +51,4 @@
         color: white;
         text-align: center;
     }
-   
 </style>

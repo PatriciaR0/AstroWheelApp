@@ -2,7 +2,7 @@
   import Card from "./Card.svelte";
   import Modal from "./Modal.svelte";
 
-  let { images, materials } = $props();
+  let { images, materials, roundedSquare } = $props();
 
   let showModal = $state(false);
   let showFirstImage = $state(true);
@@ -15,7 +15,12 @@
   }
 </script>
 
-<Modal bind:showModal toggleImage={()=>toggleImage()} bind:showFirstImage bind:isMultiPage>
+<Modal
+  bind:showModal
+  toggleImage={() => toggleImage()}
+  bind:showFirstImage
+  bind:isMultiPage
+>
   {#if showFirstImage}
     <img src={info1} alt={""} class="img-pop-up" />
   {:else}
@@ -35,6 +40,7 @@
         ? materials.find((material) => material.materialId === image.id)
             ?.quantity
         : undefined}
+      {roundedSquare}
     />
   {/each}
 </div>

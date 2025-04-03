@@ -72,7 +72,7 @@
     </div>
 </div>
 
-<CardContainer bind:images />
+<CardContainer bind:images roundedSquare="True" />
 
 <style>
     .home-container {

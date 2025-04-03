@@ -2,15 +2,16 @@
     import { onMount } from "svelte";
     import CardContainer from "../CardContainer.svelte";
     import { sessionStore } from "$lib/stores/sessionStore";
+    import { PUBLIC_SERVER_URL } from "$env/static/public";
 
     let materials = [];
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/api/players/me", {
+        const response = await fetch(PUBLIC_SERVER_URL + "/api/players/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStore.getToken()}`
+                Authorization: `Bearer ${sessionStore.getToken()}`,
             },
         });
         let meResponse = await response.json();
@@ -162,7 +163,6 @@
             alt: "Chrono Potion",
             info1: "/chrono_potion_info.webp",
         },
-
     ];
 </script>
 

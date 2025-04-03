@@ -1,15 +1,16 @@
 <script>
     import { onMount } from "svelte";
     import { sessionStore } from "$lib/stores/sessionStore";
+    import { PUBLIC_SERVER_URL } from "$env/static/public";
 
     let scores = [];
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/api/HighScore", {
+        const response = await fetch(PUBLIC_SERVER_URL + "/api/HighScore", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStore.getToken()}`
+                Authorization: `Bearer ${sessionStore.getToken()}`,
             },
         });
         scores = await response.json();
@@ -23,7 +24,7 @@
 </div>
 
 {#if scores.length}
-<div style="width: 100%; display: flex; justify-content: center;">
+    <div style="width: 100%; display: flex; justify-content: center;">
         <table
             style="
             border-collapse: collapse; 
@@ -54,11 +55,11 @@
                 </tr>
             </thead>
             <tbody>
-                {#each scores as score,i}
+                {#each scores as score, i}
                     <tr>
                         <td
                             style="border: 1px solid black; padding: 8px; width: 5%;"
-                            >{i+1}</td
+                            >{i + 1}</td
                         >
                         <td
                             style="border: 1px solid black; padding: 8px; width: 66%;"

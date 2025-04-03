@@ -1,43 +1,50 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { sessionStore } from "$lib/stores/sessionStore";
+  import { PUBLIC_SERVER_URL } from "$env/static/public";
 
   let email = "";
   let password = "";
 
+  let isLoading = false;
 
   function validate() {
-    let error = false;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      error = true;
-    } else {
-      error = false;
+    if (!emailPattern || !emailPattern.test(email)) {
+      return "E-mail is invalid!";
     }
-    return error;
-  }
 
+    if (!password || password === "") {
+      return "Password cannot be empty!";
+    }
+  }
   async function handleSignIn() {
-  
-  let isError = validate()
-  if (isError){
-    alert ("E-mail is not valid!")
-    return
-  }
-
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      sessionStore.setToken(data.token);
-      goto("/home");
-    } else {
-      alert("Unsuccessful Login!");
+    let errorMsg = validate();
+    if (errorMsg) {
+      alert(errorMsg);
+      return;
     }
+    try {
+      isLoading = true;
+      const res = await fetch(PUBLIC_SERVER_URL + "/api/Auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        sessionStore.setToken(data.token);
+        goto("/home");
+      } else if (res.status === 401) {
+        alert(data.error);
+      } else {
+        alert("Unexpected error!");
+      }
+    } catch (e) {
+      alert("System is down. Please try again later.");
+    }
+    isLoading = false;
   }
 </script>
 
@@ -55,7 +62,12 @@
     placeholder="Password"
     bind:value={password}
   />
-  <button class="login-btn" on:click={handleSignIn}>Sign In</button>
+
+  {#if !isLoading}
+    <button class="login-btn" on:click={handleSignIn}>Sign In</button>
+  {:else}
+    <p>Loading...</p>
+  {/if}
 </div>
 
 <style>

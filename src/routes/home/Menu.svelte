@@ -2,30 +2,33 @@
     import { onMount } from "svelte";
     import { sessionStore } from "$lib/stores/sessionStore";
 
+    import { PUBLIC_SERVER_URL } from "$env/static/public";
 
     let userData = {};
     let character = {};
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/api/players/me", {
+        const response = await fetch(PUBLIC_SERVER_URL + "/api/players/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStore.getToken()}`
+                Authorization: `Bearer ${sessionStore.getToken()}`,
             },
         });
         userData = await response.json();
 
-        const characterResponse = await fetch(`http://localhost:3000/api/characters/${userData.characterId}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStore.getToken()}`
+        const characterResponse = await fetch(
+            PUBLIC_SERVER_URL + `/api/characters/${userData.characterId}`,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${sessionStore.getToken()}`,
+                },
             },
-        });
+        );
 
         character = await characterResponse.json();
-        console.log (character)
     });
 
     /**
@@ -82,7 +85,11 @@
             {#if character.astroSign}
                 <img
                     class="profile-image"
-                    src={"/" + character.astroSign.toLowerCase() +"_"+ character.gender.toLowerCase() + ".webp"}
+                    src={"/" +
+                        character.astroSign.toLowerCase() +
+                        "_" +
+                        character.gender.toLowerCase() +
+                        ".webp"}
                     alt="User Selected Image"
                 />
             {/if}

@@ -20,10 +20,19 @@
   bind:this={dialog}
   onclose={() => (showModal = false)}
   onclick={(e) => {
-    if (e.target === dialog) dialog.close();
+    if (e.target === dialog) {
+      dialog.close();
+      showFirstImage = true;
+    }
   }}
 >
-  <button class="close-btn" onclick={() => dialog.close()}>✖</button>
+  <button
+    class="close-btn"
+    onclick={() => {
+      dialog.close();
+      showFirstImage = true;
+    }}>✖</button
+  >
 
   <div class="modal-content">
     <div class="image-container">
@@ -48,7 +57,6 @@
     border-radius: 0.2em;
     border: none;
     padding: 0;
-    position: relative;
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);
@@ -57,11 +65,11 @@
     padding: 1em;
   }
   dialog[open] {
-    animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: zoom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   @keyframes zoom {
     from {
-      transform: scale(0.95);
+      transform: scale(0.1);
     }
     to {
       transform: scale(1);
