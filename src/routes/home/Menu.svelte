@@ -17,8 +17,21 @@
         });
         userData = await response.json();
 
+        const loginDate = new Date(userData.lastLogin);
+        const formattedDate = loginDate
+            .toLocaleString("en-GB", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false, // 24-hour format
+            })
+            .replace(",", ""); // Remove comma between date and time
+        userData.lastLogin = formattedDate;
+
         const characterResponse = await fetch(
-            PUBLIC_SERVER_URL + `/api/characters/${userData.characterId}`,
+            PUBLIC_SERVER_URL + `/api/character/${userData.characterId}`,
             {
                 method: "GET",
                 headers: {

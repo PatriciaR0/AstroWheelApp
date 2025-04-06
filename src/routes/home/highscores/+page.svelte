@@ -6,7 +6,7 @@
     let scores = [];
 
     onMount(async () => {
-        const response = await fetch(PUBLIC_SERVER_URL + "/api/HighScore", {
+        const response = await fetch(PUBLIC_SERVER_URL + "/api/inventory", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +46,7 @@
                     >
                     <th
                         style="border: 1px solid black; padding: 8px; width: 66%;"
-                        >Character Name</th
+                        >Player Name</th
                     >
                     <th
                         style="border: 1px solid black; padding: 8px; width: 34%;"
@@ -63,7 +63,7 @@
                         >
                         <td
                             style="border: 1px solid black; padding: 8px; width: 66%;"
-                            >{score.characterName}</td
+                            >{score.playerName}</td
                         >
                         <td
                             style="border: 1px solid black; padding: 8px; width: 34%;"
